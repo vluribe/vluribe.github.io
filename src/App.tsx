@@ -1,11 +1,18 @@
 import "./App.css";
-import { ChakraProvider } from "@chakra-ui/react";
-import UnderConstruction from "./components/UnderConstruction";
+import { Box, ChakraProvider } from "@chakra-ui/react";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Fonts from "./fonts";
+import theme from "./theme";
 
 function App() {
   return (
-    <ChakraProvider>
-      <UnderConstruction />
+    <ChakraProvider theme={theme}>
+      <Fonts />
+      <Navbar />
+      <Box px={16}>
+        <Hero />
+      </Box>
     </ChakraProvider>
   );
 }
