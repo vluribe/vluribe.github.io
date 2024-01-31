@@ -15,9 +15,9 @@ import webCursorImage from "../images/webCursor.svg";
 
 const Hero = () => {
   return (
-    <SimpleGrid columns={2} alignItems="center" w="full" pt={8}>
+    <SimpleGrid columns={[1, 1, 1, 2]} alignItems="center" w="full" pt={[8, 16]}>
       <Center>
-        <Heading fontSize="6xl">
+        <Heading fontSize={["4xl", "4xl", "6xl"]}>
           Hey there! This is Laura, and I like turning
           <Text
             bgGradient="linear(to-l, #FF0080, #AB52C5)"
@@ -38,7 +38,7 @@ const Hero = () => {
           </Text>
         </Heading>
       </Center>
-      <Center pos="relative">
+      <Center pos="relative" display={["none", "none", "none", "flex"]}>
         <Box boxSize="40px" pos="absolute" top={40} left="0%">
           <Image src={lightbulbImage} alt="lightbulb" />
         </Box>
