@@ -5,6 +5,7 @@ import {
   Text,
   Box,
   Image,
+  ImageProps,
 } from "@chakra-ui/react";
 import avatarWelcome from "../images/welcomeAvatar.svg";
 import lightbulbImage from "../images/lightbulb.svg";
@@ -13,9 +14,33 @@ import searchImage from "../images/search.svg";
 import webPageImage from "../images/webPage.svg";
 import webCursorImage from "../images/webCursor.svg";
 
+interface HeroIconProps extends ImageProps {
+  top: number | string;
+  left?: number | string;
+  right?: number | string;
+}
+
+export const HeroIcon = ({ top, left, right, src, alt }: HeroIconProps) => (
+  <Box
+    boxSize="70px"
+    pos="absolute"
+    top={top}
+    {...(right && { right })}
+    {...(left && { left })}
+    display={["none", "none", "none", "flex"]}
+  >
+    <Image src={src} alt={alt} />
+  </Box>
+);
+
 const Hero = () => {
   return (
-    <SimpleGrid columns={[1, 1, 1, 2]} alignItems="center" w="full" pt={[8, 16]}>
+    <SimpleGrid
+      columns={[1, 1, 1, 2]}
+      alignItems="center"
+      w="full"
+      pt={[8, 16]}
+    >
       <Center>
         <Heading fontSize={["4xl", "4xl", "6xl"]}>
           Hey there! This is Laura, and I like turning
@@ -38,23 +63,18 @@ const Hero = () => {
           </Text>
         </Heading>
       </Center>
-      <Center pos="relative" display={["none", "none", "none", "flex"]}>
-        <Box boxSize="40px" pos="absolute" top={40} left="0%">
-          <Image src={lightbulbImage} alt="lightbulb" />
-        </Box>
-        <Box boxSize="70px" pos="absolute" top={0} left="16%">
-          <Image src={appstImage} alt="lightbulb" />
-        </Box>
-        <Box boxSize="70px" pos="absolute" top={-20} left="48%">
-          <Image src={searchImage} alt="search" />
-        </Box>
-        <Box boxSize="70px" pos="absolute" top={0} right="10%">
-          <Image src={webPageImage} alt="webpage colorfull" />
-        </Box>
-        <Box boxSize="70px" pos="absolute" top={40} right="0%">
-          <Image src={webCursorImage} alt="webpage pink" />
-        </Box>
-        <img src={avatarWelcome} alt="Welcome" />
+      <Center pos="relative">
+        <HeroIcon top={40} left="0%" src={lightbulbImage} alt="lightbulb" />
+        <HeroIcon top={0} left="16%" src={appstImage} alt="lightbulb" />
+        <HeroIcon top={-20} left="48%" src={searchImage} alt="search" />
+        <HeroIcon
+          top={0}
+          right="10%"
+          src={webPageImage}
+          alt="webpage colorfull"
+        />
+        <HeroIcon top={40} right="0%" src={webCursorImage} alt="webpage pink" />
+        <Image src={avatarWelcome} alt="Welcome" mt={["8", "8", "8", "0"]} />
       </Center>
     </SimpleGrid>
   );
