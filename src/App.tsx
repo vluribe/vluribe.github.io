@@ -5,6 +5,7 @@ import Hero from "./components/Hero";
 import Fonts from "./fonts";
 import theme from "./theme";
 import Stack from "./components/Stack";
+import About from "./components/About";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Navbar />
       <Box px={16}>
         <Hero />
+        <About />
         <Stack />
       </Box>
     </ChakraProvider>

@@ -11,6 +11,8 @@ import {
   VStack,
 } from "@chakra-ui/react";
 
+import SectionContainer from "./SectionContainer";
+
 import reactLogo from "../images/stack/react.png";
 import typescriptLogo from "../images/stack/typescript.png";
 import javascriptLogo from "../images/stack/javascript.png";
@@ -45,7 +47,7 @@ const StackImage = ({ src, alt, size = "lg" }: StackImageProps) => (
 
 const Stack = () => {
   return (
-    <Box w="full" py={20}>
+    <SectionContainer id="stack">
       <Heading
         fontSize={["4xl", "4xl", "5xl"]}
         textAlign="center"
@@ -110,7 +112,7 @@ const Stack = () => {
           </Flex>
         </Box>
       </Flex>
-    </Box>
+    </SectionContainer>
   );
 };
 
