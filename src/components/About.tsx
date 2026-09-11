@@ -4,8 +4,8 @@ const About = () => (
   <Box as="section" id="about" bg="brand.wash" scrollMarginTop="72px">
     <Flex
       flexDirection={["column", "column", "column", "row-reverse"]}
-      justifyContent="space-between"
-      alignItems={{ base: "center", lg: "flex-start" }}
+      justifyContent="center"
+      alignItems="center"
       w="full"
       maxW="1600px"
       mx="auto"
@@ -15,10 +15,10 @@ const About = () => (
     >
       <Heading
         fontSize={["3xl", "4xl", "5xl", "7xl"]}
-        textAlign={["center", "center", "center", "right"]}
+        textAlign="center"
         lineHeight="1.05"
         color="brand.ink"
-        maxW={{ lg: "360px" }}
+        w={{ lg: "360px" }}
         flexShrink={0}
       >
         About{" "}
@@ -29,19 +29,18 @@ const About = () => (
       <VStack
         gap={5}
         maxW={["100%", "100%", "800px", "760px"]}
-        alignItems={["center", "center", "center", "flex-start"]}
+        alignItems="center"
       >
         <Box
           w="48px"
           h="4px"
           borderRadius="full"
           bgGradient="linear(to-r, brand.pink, brand.violet)"
-          display={{ base: "none", lg: "block" }}
         />
         <Text
           fontSize={["md", "md", "lg"]}
           lineHeight="1.7"
-          textAlign={["center", "center", "center", "left"]}
+          textAlign="center"
           color="brand.ink"
         >
           I am a Senior Software Engineer with 6+ years of experience designing
@@ -55,7 +54,7 @@ const About = () => (
         <Text
           fontSize={["md", "md", "lg"]}
           lineHeight="1.7"
-          textAlign={["center", "center", "center", "left"]}
+          textAlign="center"
           color="gray.700"
         >
           I believe great engineering goes beyond writing code: it&apos;s about
