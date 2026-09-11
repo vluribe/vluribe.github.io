@@ -44,24 +44,22 @@ const Hero = () => {
         pt={[8, 16]}
       >
         <Center>
-          <Heading fontSize={["4xl", "4xl", "6xl"]}>
-            Hey there! This is Laura, and I like turning
+          <Heading fontSize={["4xl", "4xl", "6xl"]} color="brand.ink">
+            Hey there! I&apos;m Laura, and I like turning{" "}
             <Text
-              bgGradient="linear(to-l, #FF0080, #AB52C5)"
+              as="span"
+              bgGradient="linear(to-l, brand.pink, brand.violet)"
               bgClip="text"
-              display="inline"
-              px={2}
             >
               ideas
-            </Text>
-            into really cool
+            </Text>{" "}
+            into products people actually{" "}
             <Text
-              bgGradient="linear(to-l, #FF0080, #AB52C5)"
+              as="span"
+              bgGradient="linear(to-l, brand.pink, brand.violet)"
               bgClip="text"
-              display="inline"
-              px={2}
             >
-              web applications
+              use
             </Text>
           </Heading>
         </Center>

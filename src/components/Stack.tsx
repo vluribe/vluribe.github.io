@@ -1,14 +1,14 @@
 import {
   Box,
-  Divider,
   Flex,
-  GridItem,
   Heading,
   Image,
   ImageProps,
   SimpleGrid,
+  Text,
   Tooltip,
-  VStack,
+  Wrap,
+  WrapItem,
 } from "@chakra-ui/react";
 
 import SectionContainer from "./SectionContainer";
@@ -16,12 +16,8 @@ import SectionContainer from "./SectionContainer";
 import reactLogo from "../images/stack/react.png";
 import typescriptLogo from "../images/stack/typescript.png";
 import javascriptLogo from "../images/stack/javascript.png";
-import styledComponentsLogo from "../images/stack/styled-components.png";
 import tailwindLogo from "../images/stack/tailwind.svg";
 import chakraUILogo from "../images/stack/chakra-ui.png";
-import cssLogo from "../images/stack/css.png";
-import htmlLogo from "../images/stack/html.png";
-import sassLogo from "../images/stack/saas.png";
 import djangoLogo from "../images/stack/django.png";
 import pythonLogo from "../images/stack/python.png";
 import awsLogo from "../images/stack/aws-lambdas.png";
@@ -32,15 +28,40 @@ interface StackImageProps extends ImageProps {
   size?: "lg" | "sm";
 }
 
+const featured = [
+  { src: reactLogo, alt: "React" },
+  { src: typescriptLogo, alt: "TypeScript" },
+  { src: javascriptLogo, alt: "JavaScript" },
+  { src: tailwindLogo, alt: "Tailwind CSS" },
+  { src: chakraUILogo, alt: "Chakra UI" },
+  { src: postgresqlLogo, alt: "PostgreSQL" },
+  { src: pythonLogo, alt: "Python" },
+  { src: djangoLogo, alt: "Django" },
+  { src: awsLogo, alt: "AWS" },
+  { src: dynamoDBLogo, alt: "DynamoDB" },
+];
+
+const chipGroups = [
+  {
+    label: "I build with",
+    items: ["Next.js", "Node.js", "Express", "tRPC", "TanStack Query", "Prisma"],
+  },
+  {
+    label: "I test and ship with",
+    items: ["Jest", "Cypress", "React Testing Library", "GitHub Actions", "Docker"],
+  },
+];
+
 const StackImage = ({ src, alt, size = "lg" }: StackImageProps) => (
   <Tooltip label={alt}>
     <Image
       src={src}
       alt={alt}
-      boxSize={size === "sm" ? "40px" : "80px"}
+      boxSize={size === "sm" ? "48px" : "72px"}
       objectFit="contain"
       borderRadius="full"
       boxShadow="md"
+      bg="white"
     />
   </Tooltip>
 );
@@ -49,68 +70,85 @@ const Stack = () => {
   return (
     <SectionContainer id="stack">
       <Heading
-        fontSize={["4xl", "4xl", "5xl"]}
+        fontSize={["3xl", "4xl", "5xl"]}
         textAlign="center"
-        bgGradient="linear(to-l, #FF0080, #AB52C5)"
+        bgGradient="linear(to-l, brand.pink, brand.violet)"
         bgClip="text"
+        mb={3}
       >
-        My Stack
+        Tech stack
       </Heading>
-      <Flex h="full" w="full" pt={8} direction={{base: "column", md: "row"}}>
-        <Box flex={1}>
-          <Heading fontSize={["3xl", "3xl", "4xl"]} textAlign="center">
-            Frontend
-          </Heading>
-          <Flex gap={5} py={8} justifyContent="center">
-            <VStack justifyContent="center">
-              <StackImage src={reactLogo} alt="React JS" />
-              <Flex gap={2}>
-                <StackImage src={typescriptLogo} alt="Typescript" />
-                <StackImage src={javascriptLogo} alt="Typescript" />
-              </Flex>
-            </VStack>
-            <SimpleGrid columns={2} gap={2}>
-              <StackImage src={htmlLogo} alt="HTML" size="sm" />
-              <StackImage src={cssLogo} alt="CSS" size="sm" />
-              <StackImage
-                src={styledComponentsLogo}
-                alt="Styled Components"
-                size="sm"
-              />
-              <StackImage src={tailwindLogo} alt="Tailwind" size="sm" />
-              <StackImage src={chakraUILogo} alt="Chakra UI" size="sm" />
-              <StackImage src={sassLogo} alt="Sass" size="sm" />
-            </SimpleGrid>
-          </Flex>
-        </Box>
-        <Divider
-          orientation="vertical"
-          h="auto"
-          borderWidth={4}
-          display={{ base: "none", md: "flex" }}
-        />
-        <Box flex={1}>
-          <Heading fontSize={["3xl", "3xl", "4xl"]} pt={["8", "8", "0"]} textAlign="center">
-            Backend
-          </Heading>
-          <Flex gap={5} py={8} justifyContent="center">
-            <VStack justifyContent="center">
-              <SimpleGrid columns={2} gap={2}>
-                <StackImage src={pythonLogo} alt="Python" />
-                <GridItem colStart={2} rowStart={2}>
-                  <StackImage src={djangoLogo} alt="Django" />
-                </GridItem>
-              </SimpleGrid>
-            </VStack>
-            <SimpleGrid columns={2} gap={2} py={4}>
-              <StackImage src={postgresqlLogo} alt="PostgreSQL" size="sm" />
-              <StackImage src={dynamoDBLogo} alt="Amazon DynamoDB" size="sm" />
-              <GridItem colSpan={2} display="flex" justifyContent="center">
-                <StackImage src={awsLogo} alt="AWS Lambda" size="sm" />
-              </GridItem>
-            </SimpleGrid>
-          </Flex>
-        </Box>
+      <Text
+        textAlign="center"
+        color="gray.600"
+        maxW="560px"
+        mx="auto"
+        mb={[8, 10]}
+      >
+        The languages, frameworks, and tools I use day to day — and am happy
+        to talk through with you.
+      </Text>
+
+      <SimpleGrid
+        columns={[3, 4, 5]}
+        spacing={[6, 8]}
+        justifyItems="center"
+        maxW="720px"
+        mx="auto"
+        mb={[10, 12]}
+      >
+        {featured.map((item) => (
+          <StackImage key={item.alt} src={item.src} alt={item.alt} />
+        ))}
+      </SimpleGrid>
+
+      <Flex
+        direction={{ base: "column", md: "row" }}
+        gap={6}
+        maxW="880px"
+        mx="auto"
+      >
+        {chipGroups.map((group) => (
+          <Box
+            key={group.label}
+            flex="1"
+            border="1px solid"
+            borderColor="brand.mist"
+            borderRadius="2xl"
+            p={6}
+            bg="brand.wash"
+          >
+            <Text
+              fontSize="sm"
+              fontWeight="600"
+              letterSpacing="0.08em"
+              textTransform="uppercase"
+              color="brand.violet"
+              mb={4}
+            >
+              {group.label}
+            </Text>
+            <Wrap spacing={2}>
+              {group.items.map((item) => (
+                <WrapItem key={item}>
+                  <Box
+                    px={3}
+                    py={1.5}
+                    bg="white"
+                    border="1px solid"
+                    borderColor="brand.mist"
+                    borderRadius="full"
+                    fontSize="sm"
+                    fontWeight="500"
+                    color="brand.ink"
+                  >
+                    {item}
+                  </Box>
+                </WrapItem>
+              ))}
+            </Wrap>
+          </Box>
+        ))}
       </Flex>
     </SectionContainer>
   );

@@ -6,7 +6,16 @@ interface Props extends BoxProps {
 }
 
 const SectionContainer = ({ children, ...props }: Props) => (
-  <Box as="section" my={20} maxWidth={"1600px"} w="full" m="auto" {...props}>
+  <Box
+    as="section"
+    maxWidth="1600px"
+    w="full"
+    mx="auto"
+    px={[4, 4, 8, 16]}
+    py={[12, 16, 20]}
+    scrollMarginTop="72px"
+    {...props}
+  >
     {children}
   </Box>
 );

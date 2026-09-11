@@ -1,60 +1,74 @@
-import { Divider, Heading, Text, VStack, Flex } from "@chakra-ui/react";
+import { Heading, Text, VStack, Flex, Box } from "@chakra-ui/react";
 
 const About = () => (
-  <VStack
-    gap={4}
-    mx={-16}
-    my={20}
-    alignItems="center"
-    as="section"
-    background="#f7f7f7"
-    id="about"
-  >
-    <Divider />
+  <Box as="section" id="about" bg="brand.wash" scrollMarginTop="72px">
     <Flex
       flexDirection={["column", "column", "column", "row-reverse"]}
       justifyContent="space-between"
+      alignItems={{ base: "center", lg: "flex-start" }}
       w="full"
-      px={16}
-      py={8}
-      gap={2}
-      maxW={`calc(1600px + 64px)`}
+      maxW="1600px"
+      mx="auto"
+      px={[4, 4, 8, 16]}
+      py={[12, 16, 20]}
+      gap={[8, 8, 10, 16]}
     >
       <Heading
-        fontSize={["lg", "lg", "xl", "8xl"]}
+        fontSize={["3xl", "4xl", "5xl", "7xl"]}
         textAlign={["center", "center", "center", "right"]}
-        mx="auto"
-        maxW="352px"
+        lineHeight="1.05"
+        color="brand.ink"
+        maxW={{ lg: "360px" }}
+        flexShrink={0}
       >
-        About Me
+        About{" "}
+        <Box as="span" display={{ base: "inline", lg: "block" }}>
+          me
+        </Box>
       </Heading>
       <VStack
-        gap={2}
-        maxW={["100%", "100%", "70%", "50%"]}
-        m={["auto", "auto", "auto", "0"]}
+        gap={5}
+        maxW={["100%", "100%", "800px", "760px"]}
+        alignItems={["center", "center", "center", "flex-start"]}
       >
-        <Text size="lg" textAlign={["center", "center", "center", "left"]}>
-          I am a web developer with {new Date().getFullYear() - 2020}+ years of
-          experience. I have worked as a full stack developer on most of the
-          projects I have been on, I have abilities with Python/Django and
-          PostgreSQL, but my expertise is frontend development, especially with
-          React JS, Next JS, and Typscript, along with several styling
-          libraries, such as Tailwind, Styled Components and Chakra UI.
+        <Box
+          w="48px"
+          h="4px"
+          borderRadius="full"
+          bgGradient="linear(to-r, brand.pink, brand.violet)"
+          display={{ base: "none", lg: "block" }}
+        />
+        <Text
+          fontSize={["md", "md", "lg"]}
+          lineHeight="1.7"
+          textAlign={["center", "center", "center", "left"]}
+          color="brand.ink"
+        >
+          I am a Senior Software Engineer with 6+ years of experience designing
+          and building scalable products across the entire stack—from
+          performant React and Next.js interfaces to server-side APIs, data
+          models, and PostgreSQL schemas. Over the course of my career,
+          I&apos;ve delivered complex software across diverse domains, including
+          distributed logistics platforms, high-throughput consumer web apps,
+          telemetry systems, and core transaction infrastructure.
         </Text>
-        <Text size="lg" textAlign={["center", "center", "center", "left"]}>
-          I consider myself super proactive, and open to new ideas, I love to be
-          in constant learning and also help others learn the things I know. I
-          consider that nobody can know everything about a subject, but a good
-          team can always help you be close to that goal.
-        </Text>
-        <Text size="lg" textAlign={["center", "center", "center", "left"]}>
-          If you are convinced that you can work with me, feel free to contact
-          me, I'd love to hear from you!
+        <Text
+          fontSize={["md", "md", "lg"]}
+          lineHeight="1.7"
+          textAlign={["center", "center", "center", "left"]}
+          color="gray.700"
+        >
+          I believe great engineering goes beyond writing code: it&apos;s about
+          end-to-end ownership. I partner closely with product, design, and
+          operations teams from initial discovery and RFC design all the way
+          through deployment, observability, and performance optimization. By
+          integrating modern AI workflows and automated tooling, I focus on
+          building reliable software systems that solve real business problems
+          and scale with user demand.
         </Text>
       </VStack>
     </Flex>
-    <Divider />
-  </VStack>
+  </Box>
 );
 
 export default About;
